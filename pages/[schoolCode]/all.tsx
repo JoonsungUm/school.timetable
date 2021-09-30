@@ -52,9 +52,9 @@ const AllClass: NextPage<AllClassProps> = ({ timeTable }) => {
             <TableHead>
               <TableRow>
                 <Cell align="center"></Cell>
-                <Cell align="center">1학년 1반</Cell>
-                <Cell align="center">2학년 1반</Cell>
-                <Cell align="center">3학년 1반</Cell>
+                <Cell align="center" width="31%">1학년 1반</Cell>
+                <Cell align="center" width="31%">2학년 1반</Cell>
+                <Cell align="center" width="31%">3학년 1반</Cell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -117,9 +117,9 @@ const AllClass: NextPage<AllClassProps> = ({ timeTable }) => {
             <TableHead>
               <TableRow>
                 <Cell align="center"></Cell>
-                <Cell align="center">1학년 2반</Cell>
-                <Cell align="center">2학년 2반</Cell>
-                <Cell align="center">3학년 2반</Cell>
+                <Cell align="center" width="31%">1학년 2반</Cell>
+                <Cell align="center" width="31%">2학년 2반</Cell>
+                <Cell align="center" width="31%">3학년 2반</Cell>
               </TableRow>
             </TableHead>
             <TableBody>
