@@ -100,12 +100,6 @@ const AllClass: NextPage<AllClassProps> = ({ timeTable }) => {
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '7')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '7')}</Cell>
               </TableRow>
-              <TableRow>
-                <Cell align="center">8교시</Cell>
-                <Cell align="center">{getClassContent(timeTable, '1', '1', '8')}</Cell>
-                <Cell align="center">{getClassContent(timeTable, '2', '1', '8')}</Cell>
-                <Cell align="center">{getClassContent(timeTable, '3', '1', '8')}</Cell>
-              </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
@@ -164,12 +158,6 @@ const AllClass: NextPage<AllClassProps> = ({ timeTable }) => {
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '7')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '7')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '7')}</Cell>
-              </TableRow>
-              <TableRow>
-                <Cell align="center">8교시</Cell>
-                <Cell align="center">{getClassContent(timeTable, '1', '2', '8')}</Cell>
-                <Cell align="center">{getClassContent(timeTable, '2', '2', '8')}</Cell>
-                <Cell align="center">{getClassContent(timeTable, '3', '2', '8')}</Cell>
               </TableRow>
             </TableBody>
           </Table>
