@@ -19,7 +19,7 @@ import { NEIS_OPEN_API_KEY } from '../../config'
 
 
 const Cell = styled(TableCell)`
-  padding: 8px 16px;
+  padding: 14px 16px;
 `
 
 interface AllClassProps {
@@ -42,8 +42,8 @@ const AllClass: NextPage<AllClassProps> = ({ timeTable }) => {
         <meta name="description" content="전체 학년의 시간표입니다." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth="xl">
-        <Typography align="center" variant="h5" gutterBottom component="div" mt="10px">
+      <Container maxWidth={false}>
+        <Typography align="center" variant="h5" gutterBottom component="div" mt="40px" mb="40px">
           남해정보산업고등학교 시간표
         </Typography>
 
