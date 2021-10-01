@@ -1,17 +1,35 @@
-import React, { Fragment } from 'react'
-import { NextPage, GetStaticProps } from 'next'
+import React, { Fragment, useEffect, useState } from 'react'
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
+
 import Container from '@mui/material/Container'
-import { classes } from 'school-info'
 import { NEIS_OPEN_API_KEY } from '../../config'
 
 
-interface SchoolProps {
-  schoolCode: string
-  classInfo: any
-}
+const School: NextPage = () => {
+  const router = useRouter()
+  const { schoolCode } = router.query
 
-const School: NextPage<SchoolProps> = ({ schoolCode, classInfo }) => {
+  const [ classInfo, setClassInfo ] = useState([])
+
+  const today = new Date()
+  const year = today.getFullYear()
+
+  useEffect(() => {
+    async function fetchData(schoolCode: string | string[] | undefined) {
+      if (typeof schoolCode === 'string') {
+        const response = await fetch(`https://open.neis.go.kr/hub/classInfo?Type=json&KEY=${NEIS_OPEN_API_KEY}&pIndex=1&pSize=1000&ATPT_OFCDC_SC_CODE=${schoolCode.split('-')[0]}&SD_SCHUL_CODE=${schoolCode.split('-')[1]}&AY=${year}`)
+        const data = await response.json()
+        if (data.classInfo) {
+          setClassInfo(data.classInfo[1].row)
+        }
+      }
+    }
+
+    fetchData(schoolCode)
+  }, [schoolCode, year])
+
   return (
     <Fragment>
       <Head>
@@ -42,38 +60,3 @@ const School: NextPage<SchoolProps> = ({ schoolCode, classInfo }) => {
 }
 
 export default School
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { schoolCode }: any = params
-
-  const today = new Date()
-  const year = today.getFullYear()
-
-  const classInfo: any[] = await classes({
-    KEY: NEIS_OPEN_API_KEY,
-    ATPT_OFCDC_SC_CODE: schoolCode.split('-')[0],
-    SD_SCHUL_CODE: schoolCode.split('-')[1],
-    AY: year,
-  })
-
-  console.log(classInfo)
-  return {
-    props: {
-      schoolCode,
-      classInfo,
-    },
-  }
-}
-
-
-export async function getStaticPaths() {
-  // Get the paths we want to pre-render based on posts
-  const paths = [{
-    params: { schoolCode: 'S10-9010132' },
-  }]
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: blocking } will server-render pages
-  // on-demand if the path doesn't exist.
-  return { paths, fallback: false }
-}

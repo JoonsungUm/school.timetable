@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
-import { NextPage, GetStaticProps } from 'next'
+import React, { Fragment, useEffect, useState } from 'react'
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Container from '@mui/material/Container'
 
+import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -11,20 +12,16 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
-
 import { styled } from '@mui/material/styles'
 
-import { timetable } from 'school-info'
 import { NEIS_OPEN_API_KEY } from '../../config'
+import { getTodayYMD } from '../../utils'
 
 
 const Cell = styled(TableCell)`
   padding: 14px 16px;
 `
 
-interface AllClassProps {
-  timeTable: any
-}
 
 const getClassContent = (timeTable: any, grade: string, className: string, perio: string) => {
   return timeTable.map((item: any) => {
@@ -34,7 +31,28 @@ const getClassContent = (timeTable: any, grade: string, className: string, perio
   })
 }
 
-const AllClass: NextPage<AllClassProps> = ({ timeTable }) => {
+const AllClass: NextPage = () => {
+  const router = useRouter()
+  const { schoolCode } = router.query
+
+  const [ timeTable, setTimeTable ] = useState([])
+
+  const timeCode = getTodayYMD()
+
+  useEffect(() => {
+    async function fetchData(schoolCode: string | string[] | undefined) {
+      if (typeof schoolCode === 'string') {
+        const response = await fetch(`https://open.neis.go.kr/hub/hisTimetable?Type=json&KEY=${NEIS_OPEN_API_KEY}&pIndex=1&pSize=1000&ATPT_OFCDC_SC_CODE=${schoolCode.split('-')[0]}&SD_SCHUL_CODE=${schoolCode.split('-')[1]}&ALL_TI_YMD=${timeCode}`)
+        const data = await response.json()
+        if (data.hisTimetable) {
+          setTimeTable(data.hisTimetable[1].row)
+        }
+      }
+    }
+
+    fetchData(schoolCode)
+  }, [schoolCode, timeCode])
+
   return (
     <Fragment>
       <Head>
@@ -169,42 +187,3 @@ const AllClass: NextPage<AllClassProps> = ({ timeTable }) => {
 }
 
 export default AllClass
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { schoolCode }: any = params
-
-  const today = new Date()
-  const year = today.getFullYear()
-  const month = today.getMonth() + 1
-  const date = today.getDate()
-
-  const timeCode = `${year}${month >= 10 ? month : '0' + month}${date >= 10 ? date : '0' + date}`
-
-  console.log(timeCode)
-
-  const timeTable: any = await timetable({
-    KEY: NEIS_OPEN_API_KEY,
-    ATPT_OFCDC_SC_CODE: schoolCode.split('-')[0],
-    SD_SCHUL_CODE: schoolCode.split('-')[1],
-    SCHUL_KND_SC_NM: '고등학교',
-    ALL_TI_YMD: timeCode,
-  })
-
-  return {
-    props: {
-      timeTable
-    },
-  }
-}
-
-export async function getStaticPaths() {
-  // Get the paths we want to pre-render based on posts
-  const paths = [{
-    params: { schoolCode: 'S10-9010132' },
-  }]
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: blocking } will server-render pages
-  // on-demand if the path doesn't exist.
-  return { paths, fallback: false }
-}
