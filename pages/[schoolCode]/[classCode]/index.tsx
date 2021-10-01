@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { NextPage, GetServerSideProps } from 'next'
+import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Container from '@mui/material/Container'
 import { timetable } from 'school-info'
@@ -35,7 +35,7 @@ const Class: NextPage<ClassProps> = ({ classCode, timeTable }) => {
 
 export default Class
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { schoolCode, classCode }: any = params
 
   const today = new Date()
@@ -61,4 +61,22 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       timeTable,
     },
   }
+}
+
+
+export async function getStaticPaths() {
+  // Get the paths we want to pre-render based on posts
+  const paths = [
+    { params: { schoolCode: 'S10-9010132', classCode: '1-1' }},
+    { params: { schoolCode: 'S10-9010132', classCode: '1-2' }},
+    { params: { schoolCode: 'S10-9010132', classCode: '2-1' }},
+    { params: { schoolCode: 'S10-9010132', classCode: '2-2' }},
+    { params: { schoolCode: 'S10-9010132', classCode: '3-1' }},
+    { params: { schoolCode: 'S10-9010132', classCode: '3-2' }},
+  ]
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: blocking } will server-render pages
+  // on-demand if the path doesn't exist.
+  return { paths, fallback: false }
 }
