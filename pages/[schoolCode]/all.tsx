@@ -18,6 +18,23 @@ import { NEIS_OPEN_API_KEY } from '../../config'
 import { getTodayYMD } from '../../utils'
 
 
+const PageTitle = styled(Typography)`
+  margin: 40px;
+`
+
+const TableLayout = styled(Table)`
+  min-width: 650px;
+`
+
+const THead = styled(TableHead)`
+`
+
+const Row = styled(TableRow)`
+`
+
+const TBody = styled(TableBody)`
+`
+
 const Cell = styled(TableCell)`
   padding: 14px 16px;
 `
@@ -61,126 +78,125 @@ const AllClass: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth={false}>
-        <Typography align="center" variant="h5" gutterBottom component="div" mt="40px" mb="40px">
+        <PageTitle align="center" variant="h5" gutterBottom>
           남해정보산업고등학교 시간표
-        </Typography>
+        </PageTitle>
 
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
+          <TableLayout aria-label="simple table">
+            <THead>
+              <Row>
                 <Cell align="center"></Cell>
                 <Cell align="center" width="31%">1학년 1반</Cell>
                 <Cell align="center" width="31%">2학년 1반</Cell>
                 <Cell align="center" width="31%">3학년 1반</Cell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
+              </Row>
+            </THead>
+            <TBody>
+              <Row>
                 <Cell align="center">1교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '1', '1')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '1')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '1')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">2교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '1', '2')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '2')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '2')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">3교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '1', '3')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '3')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '3')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">4교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '1', '4')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '4')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '4')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">5교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '1', '5')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '5')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '5')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">6교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '1', '6')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '6')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '6')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">7교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '1', '7')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '1', '7')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '1', '7')}</Cell>
-              </TableRow>
-            </TableBody>
-          </Table>
+              </Row>
+            </TBody>
+          </TableLayout>
         </TableContainer>
 
         <br />
 
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
+          <TableLayout aria-label="simple table">
+            <THead>
+              <Row>
                 <Cell align="center"></Cell>
                 <Cell align="center" width="31%">1학년 2반</Cell>
                 <Cell align="center" width="31%">2학년 2반</Cell>
                 <Cell align="center" width="31%">3학년 2반</Cell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
+              </Row>
+            </THead>
+            <TBody>
+              <Row>
                 <Cell align="center">1교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '1')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '1')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '1')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">2교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '2')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '2')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '2')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">3교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '3')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '3')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '3')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">4교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '4')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '4')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '4')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">5교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '5')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '5')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '5')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">6교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '6')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '6')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '6')}</Cell>
-              </TableRow>
-              <TableRow>
+              </Row>
+              <Row>
                 <Cell align="center">7교시</Cell>
                 <Cell align="center">{getClassContent(timeTable, '1', '2', '7')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '2', '2', '7')}</Cell>
                 <Cell align="center">{getClassContent(timeTable, '3', '2', '7')}</Cell>
-              </TableRow>
-            </TableBody>
-          </Table>
+              </Row>
+            </TBody>
+          </TableLayout>
         </TableContainer>
-
       </Container>
     </Fragment>
   )
