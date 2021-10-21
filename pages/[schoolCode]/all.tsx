@@ -78,9 +78,9 @@ const AllClass: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth={false}>
-        <PageTitle align="center" variant="h5" gutterBottom>
+        {/* <PageTitle align="center" variant="h5" gutterBottom>
           남해정보산업고등학교 시간표
-        </PageTitle>
+        </PageTitle> */}
 
         <TableContainer component={Paper}>
           <TableLayout aria-label="simple table">
