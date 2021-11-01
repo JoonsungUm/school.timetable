@@ -43,8 +43,6 @@ const Row = styled(TableRow)`
 const TBody = styled(TableBody)`
 `
 
-// #017932
-
 const Cell = styled(TableCell)`
   padding: 8px 16px;
   font-size: 32px;
@@ -87,13 +85,11 @@ const AllClass: NextPage = () => {
       <Head>
         <title>고등학교시간표</title>
         <meta name="description" content="전체 학년의 시간표입니다." />
+        <meta httpEquiv="refresh" content="5; url=https://stavestone.com/meal.php" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth={false}>
-        {/* <PageTitle align="center" variant="h5" gutterBottom>
-          남해정보산업고등학교 시간표
-        </PageTitle> */}
-        <Box sx={{ height: 24, width: '100%' }} />
+        <Box sx={{ height: 28, width: '100%' }} />
         <TableContainer component={Paper}>
           <TableLayout aria-label="simple table">
             <THead>
