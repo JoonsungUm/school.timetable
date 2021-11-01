@@ -3,15 +3,19 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import Container from '@mui/material/Container'
-import Typography from '@mui/material/Typography'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
-import Paper from '@mui/material/Paper'
+import {
+  Box,
+  Container,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@mui/material'
+
 import { styled } from '@mui/material/styles'
 
 import { NEIS_OPEN_API_KEY } from '../../config'
@@ -27,6 +31,10 @@ const TableLayout = styled(Table)`
 `
 
 const THead = styled(TableHead)`
+  background-color: #017932;
+  th {
+    color: white;
+  }
 `
 
 const Row = styled(TableRow)`
@@ -35,8 +43,12 @@ const Row = styled(TableRow)`
 const TBody = styled(TableBody)`
 `
 
+// #017932
+
 const Cell = styled(TableCell)`
-  padding: 14px 16px;
+  padding: 8px 16px;
+  font-size: 32px;
+  font-weight: 700;
 `
 
 
@@ -81,7 +93,7 @@ const AllClass: NextPage = () => {
         {/* <PageTitle align="center" variant="h5" gutterBottom>
           남해정보산업고등학교 시간표
         </PageTitle> */}
-
+        <Box sx={{ height: 24, width: '100%' }} />
         <TableContainer component={Paper}>
           <TableLayout aria-label="simple table">
             <THead>
