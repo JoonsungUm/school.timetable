@@ -36,7 +36,7 @@ const Class: NextPage = () => {
       <Head>
         <title>고등학교시간표</title>
         <meta name="description" content={`${typeof classCode === 'string' && classCode.split('-')[0]}학년 ${typeof classCode === 'string' && classCode.split('-')[1]}반 시간표 입니다.`} />
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Container maxWidth="sm">
         <h1>고등학교시간표</h1>

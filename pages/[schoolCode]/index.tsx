@@ -35,7 +35,7 @@ const School: NextPage = () => {
       <Head>
         <title>고등학교시간표-학년선택</title>
         <meta name="description" content="원하는 학년을 선택해주세요." />
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Container maxWidth="sm">
         <h1>고등학교시간표-학년선택</h1>
