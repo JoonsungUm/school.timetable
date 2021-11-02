@@ -83,10 +83,10 @@ const AllClass: NextPage = () => {
   return (
     <Fragment>
       <Head>
-        <title>고등학교시간표</title>
-        <meta name="description" content="전체 학년의 시간표입니다." />
-        <meta httpEquiv="refresh" content="8; url=https://stavestone.com/meal.php" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>남해정보산업고등학교 시간표</title>
+        <meta name="description" content="남해정보산업고 전체 학년의 시간표" />
+        <meta httpEquiv="refresh" content="8; url=https://school.stave.kr" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Container maxWidth={false}>
         <Box sx={{ height: 28, width: '100%' }} />
