@@ -85,7 +85,7 @@ const AllClass: NextPage = () => {
       <Head>
         <title>남해정보산업고등학교 시간표</title>
         <meta name="description" content="남해정보산업고 전체 학년의 시간표" />
-        <meta httpEquiv="refresh" content="8; url=https://school.stave.kr" />
+        <meta httpEquiv="refresh" content="10; url=https://school.stave.kr" />
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Container maxWidth={false}>
