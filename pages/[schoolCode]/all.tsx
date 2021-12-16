@@ -31,7 +31,7 @@ const TableLayout = styled(Table)`
 `
 
 const THead = styled(TableHead)`
-  background-color: #017932;
+  background-color: #2BAEE2;
   th {
     color: white;
   }
